@@ -1,7 +1,10 @@
-
+import MainLayout from "./layouts/MainLayout"
+import './stylesheet/style.css'
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <MainLayout />
+    </div>
   )
 }
 
