@@ -1,8 +1,14 @@
+"use client"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import MainLayout from "../layouts/MainLayout"
-import Register from "../pages/Register"
+import UserSignUp from "../pages/users/UserSignUp"
+import UserLogin from "../pages/users/Userlogin"
+import CaptainSignUp from "../pages/captains/CaptainSignUp"
+import CaptainLogin from "../pages/captains/CaptainLogin"
+import Start from "../pages/Start"
 import Home from "../pages/Home"
-import Login from "../pages/Login"
+import UserprotectedRoute from "../protectedRoutes/usersRoutes/userprotectedRoute"
+import LogoutUser from "../pages/users/LogoutUser"
 
 const Approutes = () => {
     const myRoutes = createBrowserRouter(
@@ -13,15 +19,33 @@ const Approutes = () => {
                 children: [
                     {
                         path: '/',
-                        element: <Home />
+                        element: <Start />
                     },
                     {
-                        path: '/register',
-                        element: <Register />
+                        path: '/home',
+                        element: <UserprotectedRoute><Home /></UserprotectedRoute>
+                    },
+                    // user ---> 
+                    {
+                        path: '/user-signup',
+                        element: <UserSignUp />
                     },
                     {
-                        path: '/login',
-                        element: <Login />
+                        path: '/user-login',
+                        element: <UserLogin />
+                    },
+                    {
+                        path: '/user-logout',
+                        element: <LogoutUser />
+                    },
+                    // captain --->
+                    {
+                        path: '/captain-signup',
+                        element: <CaptainSignUp />
+                    },
+                    {
+                        path: '/captain-login',
+                        element: <CaptainLogin />
                     }
                 ]
             }

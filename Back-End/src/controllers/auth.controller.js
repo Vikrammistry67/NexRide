@@ -41,7 +41,8 @@ export const registerUser = async (req, res, next) => {
         message: 'User registered succcessfully',
         user: {
             fullName: user.fullName,
-            email: user.email
+            email: user.email,
+            token: token
         }
     });
 };
@@ -77,7 +78,8 @@ export const loginUser = async (req, res, next) => {
 
     res.status(200).json({
         success: true,
-        message: 'User LoggedIn successfully'
+        message: 'User LoggedIn successfully',
+        token: token
     })
 
 };
